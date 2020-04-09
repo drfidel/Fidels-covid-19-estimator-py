@@ -16,12 +16,12 @@ def estimator(data):
 {
 data: data, 
 impact: {
-	currentlyInfected = input_data['reportedCases']*10
-	infectionsByRequestedTime = input_data['currentlyInfected']*1024
+	currentlyInfected = reportedCases*10
+	infectionsByRequestedTime = currentlyInfected*1024
 }, 
 severeImpact: {
-	currentlyInfected = input_data['reportedCases']*10
-	infectionsByRequestedTime = input_data['currentlyInfected']*1024
+	currentlyInfected = reportedCases*10
+	infectionsByRequestedTime = currentlyInfected*1024
 } 
 }
 
