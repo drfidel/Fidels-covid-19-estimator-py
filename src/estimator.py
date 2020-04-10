@@ -17,12 +17,22 @@ def estimator(data):
 		"data":input_data, 
 		"impact": {
 			"currentlyInfected": input_data["reportedCases"]*10,
-			"infectionsByRequestedTime": input_data["currentlyInfected"]*1024
+			"infectionsByRequestedTime": input_data["currentlyInfected"]*10*1024,
+			"severeCasesByRequestedTime": input_data["reportedCases"]*10*1024*0.15,
+			"hospitalBedsByRequestedTime": (input_data["reportedCases"]*10*1024*0.15)-(input_data["totalHospitalBeds"]*0.35),
+			"casesForICUByRequestedTime": input_data["reportedCases"]*10*1024*0.05,
+			"casesForVentilatorsByRequestedTime": input_data["reportedCases"]*10*1024*0.02,
+			"dollarsInFlight": input_data["avgDailyIncomePopulation"]*input_data["avgDailyIncomeInUSD"]*(input_data["currentlyInfected"]*10*1024)*30
 			}, 
 	
 		"severeImpact": {
-			"currentlyInfected": input_data["reportedCases"]*10,
-			"infectionsByRequestedTime": input_data["currentlyInfected"]*1024
+			"currentlyInfected": input_data["reportedCases"]*50,
+			"infectionsByRequestedTime": input_data["currentlyInfected"]*50*1024,
+			"severeCasesByRequestedTime": input_data["reportedCases"]*50*1024*0.15,
+			"hospitalBedsByRequestedTime": (input_data["reportedCases"]*50*1024*0.15)-(input_data["totalHospitalBeds"]*.35),
+			"casesForICUByRequestedTime": input_data["reportedCases"]*50*1024*0.05,
+			"casesForVentilatorsByRequestedTime": input_data["reportedCases"]*50*1024*0.02,
+			"dollarsInFlight" : input_data["avgDailyIncomePopulation"]*input_data["avgDailyIncomeInUSD"]*(input_data["currentlyInfected"]*50*1024)*30
 			}
 		}
 		return output_data
